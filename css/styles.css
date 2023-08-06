@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #2c4d55;
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    padding: 10px;
+    max-width: 1050px;
+}
+
+.tools-container, .drawPad {
+    background-color: #fff;
+    border-radius: 7px;
+}
+
+.tools-container {
+    width: 210px;
+    padding: 15px 22px 0;
+}
+
+.tools-container .row {
+    margin-bottom: 20px;
+}
+
+.row .options {
+    list-style: none;
+    margin: 10px 0 0 5px;
+}
+
+.row .options .option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.option:is(:hover, .active) img {
+    filter: invert(17%) sepia(90%) saturate(3000%) hue-rotate(900deg) brightness(100%) contrast(100%);
+}
+
+.option :where(span, label)  {
+    color: #2c2c2c;
+    padding-left: 10px;
+}
+
+.option:is(:hover, .active) :where(span, label) {
+    color: #4a98f7;
+}
+
+.option #fillColor {
+    width: 14px;
+    height: 14px;
+}
+
+#fillColor:checked ~ label {
+    color: #4a98f7;
+}
+
+.option #sizeSlider {
+    width: 100%;
+    height: 5px;
+    margin-top: 10px;
+}
+
+.colors .options {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.colors .option {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    margin-top: 3px;
+    position: relative;
+}
+
+.colors .option:nth-child(1) {
+    background-color: #fff;
+    border: 2px solid #bfbfbf;
+}
+
+.colors .option:nth-child(2) {
+    background-color: #000;
+}
+
+.colors .option:nth-child(3) {
+    background-color: #e02020;
+}
+
+.colors .option:nth-child(4) {
+    background-color: #6dd400;
+}
+
+.colors .option:nth-child(5) {
+    background-color: #4a98f7;
+}
+
+.colors .option.selected::before {
+    position: absolute;
+    content: '';
+    height: 12px;
+    width: 12px;
+    background: inherit;
+    border-radius: inherit;
+    border: 2px solid #fff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.colors .option:first-child.selected::before {
+    border-color: #ccc;
+}
+
+.option #colorPicker {
+    opacity: 0;
+    cursor: pointer;
+}
+
+.buttons button {
+    width: 100%;
+    border: none;
+    outline: none;
+    color: #fff;
+    padding: 11px 0;
+    margin-bottom: 13px;
+    background: none;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.buttons .clearCanvas {
+    color: #6c757d;
+    border: 1px solid #6c757d;
+    transition: all .5s ease;
+}
+
+.clearCanvas:hover {
+    color: #fff;
+    background: #6c757d;
+}
+
+.buttons .saveImg {
+    background: #4a98f7;
+    border: 1px solid #4a98f7;
+}
+
+.drawPad {
+    flex: 1;
+}
+
+.drawPad canvas {
+    width: 100%;
+    height: 100%;
+}
